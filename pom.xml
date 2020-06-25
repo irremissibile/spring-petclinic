@@ -86,4 +86,7 @@
         </plugins>
     </build>
 
+    <scm>
+        <developerConnection>scm:git:git@github.com:irremissibile/spring-petclinic.git</developerConnection>
+    </scm>
 </project>
