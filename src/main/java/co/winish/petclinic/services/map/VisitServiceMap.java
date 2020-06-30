@@ -2,10 +2,12 @@ package co.winish.petclinic.services.map;
 
 import co.winish.petclinic.model.Visit;
 import co.winish.petclinic.services.VisitService;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 import java.util.Set;
 
+@Service
 public class VisitServiceMap extends AbstractMapService<Visit, Long> implements VisitService {
 
     @Override
