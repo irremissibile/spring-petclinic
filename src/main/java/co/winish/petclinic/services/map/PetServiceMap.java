@@ -4,13 +4,14 @@ import co.winish.petclinic.model.Pet;
 import co.winish.petclinic.services.PetService;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
 import java.util.Set;
 
 @Service
 public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService {
 
     @Override
-    public Pet findById(Long id) {
+    public Optional<Pet> findById(Long id) {
         return super.findById(id);
     }
 

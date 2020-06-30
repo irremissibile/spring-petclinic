@@ -4,13 +4,14 @@ import co.winish.petclinic.model.Owner;
 import co.winish.petclinic.services.OwnerService;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
 import java.util.Set;
 
 @Service
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
 
     @Override
-    public Owner findById(Long id) {
+    public Optional<Owner> findById(Long id) {
         return super.findById(id);
     }
 
@@ -35,7 +36,7 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
     }
 
     @Override
-    public Owner findByLastName(String lastName) {
+    public Optional<Owner> findByLastName(String lastName) {
         return null;
     }
 }

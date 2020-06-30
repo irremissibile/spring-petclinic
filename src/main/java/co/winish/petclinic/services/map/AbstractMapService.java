@@ -1,22 +1,23 @@
 package co.winish.petclinic.services.map;
 
 import co.winish.petclinic.model.BaseEntity;
+import co.winish.petclinic.services.CrudService;
 
 import java.util.*;
 
-public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> {
+public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> implements CrudService<T, ID> {
 
     protected Map<Long, T> map = new HashMap<>();
 
-    Set<T> findAll() {
+    public Set<T> findAll() {
         return new HashSet<>(map.values());
     }
 
-    T findById(ID id) {
-        return map.get(id);
+    public Optional<T> findById(ID id) {
+        return Optional.of(map.get(id));
     }
 
-    T save(T t) {
+    public T save(T t) {
         if (t != null) {
             if (t.getId() == null)
                 t.setId(getNextId());
@@ -27,11 +28,11 @@ public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> 
         return t;
     }
 
-    void deleteById(ID id) {
+    public void deleteById(ID id) {
         map.remove(id);
     }
 
-    void delete(T t) {
+    public void delete(T t) {
         map.entrySet().removeIf(entry -> entry.getValue().equals(t));
     }
 
